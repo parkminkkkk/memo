@@ -1,0 +1,87 @@
+[pc속도 잡는 법]
+*reg = 레지스트리 편집기 
+1. 컴퓨터\HKEY_CURRENT_USER\Control Panel\Desktop
+munushowDelay : 400-> 0
+
+2. 컴퓨터\HKEY_CURRENT_USER\Control Panel\Desktop\WindowMetrics
+MinAnimate : 0으로 변경 
+
+3. 컴퓨터\HKEY_CURRENT_USER\Control Panel\Keyboard
+keyboardDelay : 0으로 변경 
+
+--------------------------------------------------------------------------
+[디스크 관리]
+diskmgmt.msc 켜기 
+-드라이브(C)(D) 설정가능, 디스크 생성 가능 
+-디스크1에 포맷 / 드라이브(D)- 폴더 우클릭-포맷 * D드라이브가 속도가 느림 *
+-나중에 _data폴더는 
+--------------------------------------------------------------------------
+[cpu->gpu 설치, 환경변경]
+
+gpu : cuda기반으로 돌아감, Cudnn설치되어 있어야  cuda돌아감 
+
+1. 그래픽카드 드라이버 :531.29
+ -nvida 드라이버 다운로드 
+ -제품유형:GeForce/제품시리즈:GeForceRTX 30series/제품계열:GeForceRTX3060/windows 10 64-bit/Game Ready 드라이버(GRD)/ Korean 
+ - 빠른설치, 사용자정의설치 상관없음 (사용자정의설치-현재버전,새버전 확인가능, 현재버전 삭제하고 새버전으로 다운로드 가능)
+
+2. Cuda : 11.4.4 *정신빠짝*
+ -cuda download
+ -(tensorflow2.7.4 & cuda11.4.4버전/ pytorch 11(?)
+  안전하다 : gema0000블로그 https://blog.naver.com/gema0000/222606335844)
+ -버전별로 잘 되는게 있고 잘 안돌아가는 부분이 있기때문에 한개씩 해보면서 정리 잘 해놓아야 함) 
+ -***visual studio code 설치하면 안됨(XXX)*** 문제 생기는 경우 발생함 
+
+ -Archive of Previous CUDA Releases/ CUDA Toolkit Archive 11.4.4 download
+ -windows/Architecture : x86-64/version : 10/Type: ***local***(network xxxx)
+ -yes,ok / *사용자정의 설치* / 
+
+3. CuDNN : v 8.2.4 for CUDA 11.4
+ - nvida 로그인, 다운로드 
+ - Download cuDNN v8.2.4 (September 2nd, 2021), for CUDA 11.4 -> cuDNN Library for Windows (x64)
+ - 압축풀기-> 압축 푼 파일(GPU프로그램)을  C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.4에 복붙
+ - <탐색기-> 내pc-> C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.4 복사붙여넣기(덮어씀)>
+
+4. 아나콘다 : 최신
+-***path 설정***
+
+5. VScode : 최신 
+
+6. tensorflow-gpu==2.7.4
+ - Cuda : 11.4.4& CuDNN : v 8.2.4 for CUDA 11.4 버전이랑 잘 맞음 (gema0000블로그 참고)
+ - 가상환경에 설치 할 것임!!!(gema0000블로그-가상환경) 
+
+ *가상환경 
+ -가상환경 생성으로 버전 다르게 세팅가능 
+ -불러오기를 통해 다른 버전을 오갈 수 있음 
+=========================================================================================
+[가상환경 설정]
+ - cmd창 (conda명령어)
+>conda env list    #base     C:\Users\bitcamp\anaconda3 # 환경목록 출력
+>activate base     #(base) C:\Users\bitcamp>  #기본 환경인 (base) 활성화 
+>conda deactivate  #(base) C:\Users\bitcamp>deactivate #비활성화(가상환경에서 나가짐)
+
+#diactivate된 상태에서 create해야함 (C:\Users\bitcamp: 이상태에서!! (base)상테에서 하면 안됨!!)
+C:\Users\bitcamp> conda create -n tf2.7.4gpu python=3.9.12 anaconda   #가상환경 생성 -n 이름 , python설치 anaconda까지 설치가능  
+
+>activate tf2.7.4gpu
+>pip list
+>pip install tensorflow-gpu==2.7.4
+
+>python
+>import tensorflow as tf 
+>tf.__version__ 
+>'2.7.4' #버전 확인
+ctrl+z : 파이썬 나가기 
+
+>conda env list #가상환경 확인(목록출력/ base, tf2.7.4gpu) 
+>activate tf2.7.4gpu 
+#가상환경 활성화 이후 vscode들어가면 가상환경 만들어져 있고 변경 가능 
+
+
+참고>conda env remove -n (가상환경이름)  #가상환경 제거 
+ 
+=========================================================================================
+
+
+
