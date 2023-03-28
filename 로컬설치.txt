@@ -1,0 +1,107 @@
+pip install tensorflow 
+
+아나콘다 설치파일을 보내줌, 그 안에 있는 tensorflow를 설치해야함 
+
+------------------------------------------------------------------
+C:\Users\bit>d:
+
+D:\>md temp #make temporary : 임시폴더 
+
+D:\>cd temp #temp폴더 이동
+
+D:\temp># 여기서 다운로드
+D:\temp>pip download tensorflow-cpu==2.7.2
+#네트워크이용해서 말고, 이미 텐서플로 다운 받은 경우 폴더로 다운로드
+
+D:\temp>dir/w #D>temp폴더 확인 가능
+D:\temp>conda create -n tf272cpu python=3.9.15
+D:\temp>activate tf272cpu
+(tf272cpu) D:\temp>pip list
+
+(tf272cpu) D:\temp>pip download protobuf==3.20.0
+(tf272cpu) D:\temp>pip install protobuf-3.20.0-cp39-cp39-win_amd64.whl
+python
+tensorflow 확인 
+
+-------------------------------------------------------------------
+#로컬설치, pip로 다운로드 해놓아야함 
+#클라우드로 대회 진행하는 경우는 인터넷 막아놓음 이때 로컬 설치해야함 
+(whl파일로 설치됨) 
+
+D:\temp>c:
+
+C:\Users\bit>dir/w  #directory약자, 파일목록 나옴
+
+(tf272cpu) D:\temp>pip install tensorflow_cpu-2.7.2-cp39-cp39-win_amd64.whl
+
+
+python
+tensorflow 
+(tf272cpu) D:\temp>pip download protobuf==3.20.0
+(tf272cpu) D:\temp>pip download tensorflow_cpu-2.7.2-cp39-cp39-win_amd64.whl
+
+=============================================================
+
+C:\Users\bit>d:
+D:\>md temp
+D:\>cd temp
+D:\temp>pip download tensorflow-cpu==2.7.2
+Collecting tensorflow-cpu==2.7.2
+.
+.
+.
+Successfully downloaded tensorflow-cpu
+
+D:\temp>dir/w
+ D:\temp 디렉터리 list확인 
+.
+.
+
+              43개 파일         300,595,842 바이트
+               2개 디렉터리  495,669,379,072 바이트 남음
+
+
+D:\temp>conda env list
+# conda environments:
+#
+base                     C:\Users\bit\anaconda3
+tf272cpu                 C:\Users\bit\anaconda3\envs\tf272cpu
+tf274gpu                 C:\Users\bit\anaconda3\envs\tf274gpu
+
+D:\temp>activate tf272cpu
+
+(tf272cpu) D:\temp>pip install tensorflow_cpu-2.7.2-cp39-cp39-win_amd64.whl
+
+(tf272cpu) D:\temp>python
+파이썬에서 확인
+>>> import tensorflow as tf
+>>> tf.__version__
+
+'''
+#버전 에러 
+>
+    _descriptor.FieldDescriptor(
+  File "C:\Users\bit\anaconda3\envs\tf272cpu\lib\site-packages\google\protobuf\descriptor.py", line 561, in __new__
+    _message.Message._CheckCalledFromGeneratedFile()
+TypeError: Descriptors cannot not be created directly.
+If this call came from a _pb2.py file, your generated code is out of date and must be regenerated with protoc >= 3.19.0.
+If you cannot immediately regenerate your protos, some other possible workarounds are:
+ 1. Downgrade the protobuf package to 3.20.x or lower.
+ 2. Set PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION=python (but this will use pure-Python parsing and will be much slower).
+'''
+(tf272cpu) D:\temp>pip list
+protobuf                     4.22.1 버전에러 
+
+(tf272cpu) D:\temp>pip uninstall protobuf
+(tf272cpu) D:\temp>pip download protobuf==3.20.0
+(tf272cpu) D:\temp>pip install protobuf-3.20.0-cp39-cp39-win_amd64.whl
+(tf272cpu) D:\temp>pip install tensorflow_cpu-2.7.2-cp39-cp39-win_amd64.whl
+
+#python 확인 
+(tf272cpu) D:\temp>python
+Python 3.9.15 (main, Nov 24 2022, 14:39:17) [MSC v.1916 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import tensorflow as tf
+>>> tf.__version__
+'2.7.2'
+>>>
