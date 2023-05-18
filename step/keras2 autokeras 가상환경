@@ -1,0 +1,20 @@
+keras2 autokeras 
+
+C:\Users\bit>conda create -n autokeras python==3.9.7 anaconda
+
+activate autokeras
+
+1. pip install upgrad--pip 
+pip 21.2.4  >> pip 23.1.2
+
+2. pip install autokeras
+autokeras 1.0.20
+
+3. pip uninstall tensorflow 
+cpu버전 2.12.0으로 깔려있음
+
+4. pip install tensorflow-gpu==2.8.4
+gpu버전 설치 
+
+#cuda 현재버전 : 11.4
+#cudnn현재버전 : v8.2.4.15 for cuda 11.4 
