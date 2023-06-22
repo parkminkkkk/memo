@@ -83,10 +83,14 @@ ctrl+z : 파이썬 나가기
  
 =========================================================================================
 <torch 가상환경>
-쿠다 11.8
+#쿠다 11.8
 anaconda 
 텐서플로 2.7.4
 토치 pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+ - https://webnautes.tistory.com/1820 
 
-# https://webnautes.tistory.com/1820 
+# CUDA 11.3
+anaconda 
+텐서플로 2.7.4
+conda install pytorch==1.10.1 torchvision==0.11.2 torchaudio==0.10.1 cudatoolkit=11.3 -c pytorch -c conda-forge
 
