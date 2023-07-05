@@ -1,0 +1,41 @@
+#IoU(Intersection Over Union)
+-객체 검출의 정확도를 평가하는 지표
+-Object Detection에서 개별 객체(Object)에 대한 검출(Detection)이 성공했는지 결정하는 지표
+-0~1사이의 값을 가짐
+-실제 객체 위치 바운딩박스와 예측한 바운딩박스 두박스가 중복되는 영역의 크기를 통해 평가하는 방식
+-겹치는 영역이 넓을 수록 잘 예측한 것으로 평가 
+-보통 IOU값이 0.5 이상이면 'good' prediction, 잘 예측한 것으로 보기 때문에 threshold를 0.5로 설정하는 경우가 많음
+
+#mAP
+-AP곡선(Average Precision curve)은 Precision과 Recall을 고려한 종합적 평가지표
+-AP는 0~1 사이의 모든 Recall에 대응하는 평균 Precision 
+-mAP는 AP의 평균(모든 점 보간법을 이용해서 AP를 구한 값의 평균)
+ 즉 객체 class가 여러 개인 경우 class당 AP를 모두 합한 값을 class 개수로 나눈 평균값이다.
+
+ #IOU : 바운딩박스 예측 잘하는 것 (예측된 경계 상자(감지된 개체)와 실측 경계 상자(실제 개체) 사이의 중첩을 측정)
+ #mAP는 클래스예측 잘 하는 것(감지되는 개체의 다른 클래스 또는 범주에 해당)
+
+============================================================================================================
+#TP, FP, FN, TN with Confusion Matrix 
+*TP : 실제양성, 예측양성 - 올바른 탐지 IOU>=threshold
+*FP : 실제음성, 예측양성 - 오탐(음성을 양성으로 탐지) IOU =< threshold
+*FN : 실제양성, 예측음성 - 미탐 (탐지하지 못함)\
+*TN : 실제음성, 예측음성 - 미적용 / Object detection에서는 이미지 내에서 감지되면 안되는 바우딩박스가 있으며, TN은 올바르게 감지되지 않은 모든 바운딩 박스인데, 이미지 내에는 바운딩 박스가 너무 많으므로 메트릭에서는 사용하지 않음
+
+#정밀도 - Precision
+-TP/TP+FP = TP/alldetections
+-예측한 것(True) 중 실제 맞춘 것(True)
+-관련 객체만을 식별하는 모델의 성능
+-ex)모델이 객체로 검출한 것이 10개인데, 그 중 7개를 올바로 검출한 것이라면, Precision =7/10 = 0.7
+
+#재현율 - Recall 
+-TP/TP+FN = TP/allgrundtruths
+-실제(True) 중 예측한 것이 맞는 것(True)
+-모든 관련 사례 (모든 정답 bounding box)를 찾는 모델의 성능
+-ex)검출해내야 하는 정답 객체가 9개이데, 모델이 객체라고 올바로 검출한 것이 6개라면 Recall=6/9 = 0.67
+
+
+#Recall과 Precision 둘 중 하나만 높아선 안 된다.
+일반적으로 둘은 반비례 관계이므로 하나로만 성능 평가를 하지 않고, 둘을 같이 평가하는데, 이 때 AP를 사용한다.
+#Precision과 Recall을 함께 나타낸 Precision-Recall curve (PR곡선)
+이 곡선의 아래 면적이 AP (Average Precision) 이다.
