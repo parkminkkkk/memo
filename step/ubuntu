@@ -1,0 +1,35 @@
+1. 우분투 설치 
+ - 일반설치 
+ - 디스크 지우고 우분투 설치
+2. IP설정 (원격확인)
+3. 그래픽드라이버 설치 (535)
+4. cuda 설치 (22.04버전)
+5. cudnn 설치 (8.9.0)
+6. anaconda 
+7. vscode 
+ -deb다운
+ -sudo apt install ./파일명(복붙cod.__deb)
+8.가상환경 설치 
+ -torch 설치 
+ -torch.cuda.is_available() 확인 
+#=======================================================#
+윈도우 우분투 PUTTY로 SSH접속하기
+
+우분투 PC
+1. ssh 설치
+sudo apt-get install ssh
+
+2. openssh-server 설치
+sudo apt-get install openssh-server
+
+3. ssh 재시작
+sudo /etc/init.d/ssh restart
+
+4. ifconfig로 ip 주소 확인(해도 되고 안해도 되고_근데 나중에 쓸거 같긴함)
+sudo apt install net-tools
+
+이후 윈도우 putty에서 ip 입력하고 동의하고 접속
+
+
+#putty명령어와 단축키 정리 참고- https://www.itopening.com/1087/
+
