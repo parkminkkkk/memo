@@ -1,0 +1,21 @@
+1. nvidia driver install
+https://forums.rockylinux.org/t/how-to-install-nvidia-driver-and-cuda-on-rocky-9-1/9686
+
+2. cuda cudnn install
+https://webnautes.blog/970/
+
+3. anaconda install
+https://www.atlantic.net/vps-hosting/how-to-install-anaconda-python-distribution-on-rocky-linux-8/     
+4. vscode install
+https://code.visualstudio.com/download -> rpm다운
+
+sudo dnf install ./다운로드/code-1.80.2-1690491680.el7.x86_64.rpm ->  vscode 다운 설치 코드.
+
+5. chrome install
+https://linux.how2shout.com/how-to-install-google-chrome-in-rhel-9-8-linux/#Download_RPM_Google_Chrome  
+
+6. xrdp, firewall(xrdp 설치 후 방화벽 해제)
+https://browndwarf.tistory.com/11
+
+7. putty 방화벽 Open
+https://dololak.tistory.com/414
