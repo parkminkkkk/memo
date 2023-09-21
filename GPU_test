@@ -1,0 +1,13 @@
+import torch
+print(torch.cuda.current_device())   #0 
+print(torch.cuda.device(0))          #<torch.cuda.device object at 0x7fa458801eb0>
+print(torch.cuda.device_count())     #2
+print(torch.cuda.get_device_name(0)) #NVIDIA GeForce RTX 3090
+print(torch.cuda.is_available())     #True
+
+
+
+import tensorflow as tf 
+from tensorflow.python.client import device_lib
+print(device_lib.list_local_devices() )
+print(tf.config.list_physical_devices('GPU'))
